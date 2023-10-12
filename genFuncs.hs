@@ -1,4 +1,4 @@
-f x y = x + y
+f x y = x + y 
 
 pow16 0 = 1
 pow16 x = 16 * pow16 (x-1)
@@ -62,4 +62,16 @@ length' xs = sum [1 | _ <- xs]
 
 removeLowercase st = [ c | c <- st, c `elem` ['A'..'Z']]
 
-heads xxs = [ [ x | x <- xs, even x ] | xs <- xxs] --input list of lists get first element from all in a new list
+heads xxs = [ [ x | x <- xs, even x ] | xs <- xxs] --input list of lists get first element from all in a new list 
+
+letEx x y z = let
+    a = x * x
+    b = y * y
+    cc = z * z
+    in
+    a * a + b * b 
+
+mult_first_two (x:y:xs) = x * y --pattern matching example
+
+double_second (_:y:_) = 2 * y --can use underscore (wildcard) if you dont care what the other values are
+
