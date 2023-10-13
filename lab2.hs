@@ -20,4 +20,14 @@ twoLengths list1 list2 = (length list1) + (length list2)
 makePalindrome list = list ++ (reverse list) 
 sumAndProduct list = ((sum list),(product list)) 
 fourThroughSix list = take 3 (drop 3 list) 
-bothIn list x y = ((elem x list) && (elem y list))
+bothIn list x y = ((elem x list) && (elem y list)) 
+
+{-q4
+a) [101..200] 
+b) [1000, 1002..1050] 
+c) [20, 19..1] 
+d) [999, 1002..] --control c to stop 
+-}
+
+--q5 
+--a) [2^x | x <- [1..10]]
