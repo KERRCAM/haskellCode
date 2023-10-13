@@ -30,4 +30,5 @@ d) [999, 1002..] --control c to stop
 -}
 
 --q5 
---a) [2^x | x <- [1..10]]
+--a) [2^x | x <- [1..10]] 
+onlyOdds list = [x | x <- list, mod x 2 == 1] 
