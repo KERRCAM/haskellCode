@@ -75,3 +75,33 @@ mult_first_two (x:y:xs) = x * y --pattern matching example
 
 double_second (_:y:_) = 2 * y --can use underscore (wildcard) if you dont care what the other values are
 
+remove_twos [] = []
+remove_twos (x:xs)
+    | x == 2 = rest
+    | otherwise = x : rest
+    where rest = remove_twos xs
+
+initials first last = [f] ++ ". " ++ [l] ++ "."
+    where (f:_) = first
+          (l:_) = last
+
+add_lists _ [] = []
+add_lists [] _ = []
+add_lists (x:xs) (y:ys) = x+y : add_lists xs ys
+
+list_equal [] [] = True
+list_equal _ [] = False
+list_equal [] _ = False
+list_equal (x:xs) (y:ys)
+    | x == y = list_equal xs ys
+    | otherwise = False
+
+gt_10 [] = ([], [])
+gt_10 (x:xs)
+    | x > 10 = (x:gt, lt)
+    | otherwise = (gt, x:lt)
+    where (gt, lt) = gt_10 xs
+
+zip' [] _ = []
+zip' _ [] = []
+zip' (x:xs) (y:ys) = (x, y) : zip' xs ys
