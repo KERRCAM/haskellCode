@@ -105,3 +105,57 @@ gt_10 (x:xs)
 zip' [] _ = [] --puts elemnts of each list togeth in a tuple (index position wise) if one list is longer it will stop at max of shorter list
 zip' _ [] = [] --(is in prelude as a base fucntion)
 zip' (x:xs) (y:ys) = (x, y) : zip' xs ys
+
+listIndSplit [] = ([], []) --must have even list input or error, splits into two lists of even and odd index positions
+listIndSplit [_] = error "Error"
+listIndSplit (x:y:xs) = (x:first, y:second)
+    where (first, second) = listIndSplit xs 
+
+
+mys2 [] [] = True --second list must be frist list with each element doubled but next to each other
+mys2 [] _ = False --i.e. [1,2] is [1,1,2,2]
+mys2 _ [] = False
+mys2 _ [_] = False
+mys2 (x:xs) (y1:y2:ys)
+    | x == y1 && x == y2 = mys2 xs ys
+    | otherwise = False
+
+even' 0 = True
+even' n = odd' (n-1) 
+
+odd' 0 = False
+odd' n = even' (n-1)
+
+evens [] = []
+evens (x:xs) = x : odds xs 
+
+odds [] = []
+odds (x:xs) = evens xs
+
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+fast_fib_help 1 = [1, 0]
+fast_fib_help n = x + y : (x:y:xs) 
+    where (x:y:xs) = fast_fib_help (n-1)
+
+split pivot [] = ([], [])
+split pivot (x:xs)
+    | x < pivot = (x : lower, upper)
+    | otherwise = (lower, x : upper)  
+    where (lower, upper) = split pivot xs
+    
+
+qs [] = []
+qs (x:xs) = qs lower ++ [x] ++ qs upper 
+    where (lower, upper) = split x xs
+
+qs' [] = []
+qs' (x:xs) = qs' lower ++ [x] ++ qs' upper
+    where lower = [e | e <- xs, e < x ]
+          upper = [e | e <- xs, e >= x]
+
+
+
+    
