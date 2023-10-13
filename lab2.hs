@@ -32,3 +32,16 @@ d) [999, 1002..] --control c to stop
 --q5 
 --a) [2^x | x <- [1..10]] 
 onlyOdds list = [x | x <- list, mod x 2 == 1] 
+between a b list = [x | x <- list, (x > a) && (x < b)] --a must be < b 
+numOfEs list = length [x | x <- list, (x == 'e') || (x == 'E')] 
+--fizzbuzz = [if ((if mod x 3 then "fizz" else show x) && (if mod x 3 then "fizz" else show x)) then "fizzbuzz" else show x | x <- [1..]] bad attempt 
+--solution 
+proper_fizzbuzz = [
+    let div_3 = x `mod` 3 == 0
+        div_5 = x `mod` 5 == 0
+    in
+        if div_3 && div_5 then "fizzbuzz"
+        else if div_3 then "fizz"
+        else if div_5 then "buzz"
+        else show x
+    | x<-[1..]]
