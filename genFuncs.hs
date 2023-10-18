@@ -1,3 +1,5 @@
+import Data.Char
+
 f x y = x + y 
 
 pow16 0 = 1
@@ -6,9 +8,9 @@ pow16 x = 16 * pow16 (x-1)
 multiply x 1 = x
 multiply x y = x + multiply x (y-1)
 
-is_even 0 = True
-is_even 1 = False
-is_even n = is_even (n-2)
+isEven 0 = True
+isEven 1 = False
+isEven n = isEven (n-2)
 
 fibonacci 0 = 0
 fibonacci 1 = 1
@@ -71,29 +73,29 @@ letEx x y z = let
     in
     a * a + b * b 
 
-mult_first_two (x:y:xs) = x * y --pattern matching example
+multFirstTwo (x:y:xs) = x * y --pattern matching example
 
-double_second (_:y:_) = 2 * y --can use underscore (wildcard) if you dont care what the other values are
+doubleSecond (_:y:_) = 2 * y --can use underscore (wildcard) if you dont care what the other values are
 
-remove_twos [] = [] --eliminates all 2s from the input list
-remove_twos (x:xs)
+removeTwos [] = [] --eliminates all 2s from the input list
+removeTwos (x:xs)
     | x == 2 = rest
     | otherwise = x : rest
-    where rest = remove_twos xs
+    where rest = removeTwos xs
 
 initials first last = [f] ++ ". " ++ [l] ++ "."
     where (f:_) = first
           (l:_) = last
 
-add_lists _ [] = []
-add_lists [] _ = []
-add_lists (x:xs) (y:ys) = x+y : add_lists xs ys
+addLists _ [] = []
+addLists [] _ = []
+addLists (x:xs) (y:ys) = x+y : addLists xs ys
 
-list_equal [] [] = True --checks if lists are the same (or strings)
-list_equal _ [] = False
-list_equal [] _ = False
-list_equal (x:xs) (y:ys)
-    | x == y = list_equal xs ys
+listEqual [] [] = True --checks if lists are the same (or strings)
+listEqual _ [] = False
+listEqual [] _ = False
+listEqual (x:xs) (y:ys)
+    | x == y = listEqual xs ys
     | otherwise = False
 
 gt_10 [] = ([], []) --returns input list as a tuple. first element is list of values over 10, second elemnt is list of values under 10 (fromt he origonal list)
@@ -136,9 +138,9 @@ fib 0 = 0
 fib 1 = 1
 fib n = fib (n-1) + fib (n-2)
 
-fast_fib_help 1 = [1, 0]
-fast_fib_help n = x + y : (x:y:xs) 
-    where (x:y:xs) = fast_fib_help (n-1)
+fastFibHelp 1 = [1, 0]
+fastFibHelp n = x + y : (x:y:xs) 
+    where (x:y:xs) = fastFibHelp (n-1)
 
 split pivot [] = ([], [])
 split pivot (x:xs)
@@ -155,6 +157,26 @@ qs' [] = []
 qs' (x:xs) = qs' lower ++ [x] ++ qs' upper
     where lower = [e | e <- xs, e < x ]
           upper = [e | e <- xs, e >= x]
+
+char2int c = ord c - ord 'a'
+
+int2char i = chr (i + ord 'a')
+
+shift c offset =
+    let
+        converted = char2int c
+        is_lower = converted >= 0 && converted < 26
+    in
+        if is_lower
+        then int2char ((converted + offset) `mod` 26)
+        else c
+
+caesarEnc [] _ = []
+caesarEnc (x:xs) offset = shift x offset
+                            : caesarEnc xs offset
+
+caesarDec (x:xs) offset = shift x (-offset)
+                            : caesarDec xs offset
 
 
 
