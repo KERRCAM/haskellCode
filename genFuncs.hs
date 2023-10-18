@@ -1,6 +1,6 @@
 import Data.Char
 
-f x y = x + y 
+f x y = x + y
 
 pow16 0 = 1
 pow16 x = 16 * pow16 (x-1)
@@ -50,9 +50,9 @@ even_sum x = if x `mod` 2 == 0
     else even_sum (x-1)
 
 evenSum x  -- same function but with gaurds
-    | (x == 0) = 0
-    | (x `mod` 2 == 0) = x + even_sum (x-1)
-    | otherwise = even_sum (x-1)
+    | x == 0 = 0
+    | (x `mod` 2 == 0) = x + evenSum (x-1)
+    | otherwise = evenSum (x-1)
 
 join xs ys = [ x ++ " " ++ y | x <- xs, y <- ys]
 
@@ -71,7 +71,7 @@ letEx x y z = let
     b = y * y
     cc = z * z
     in
-    a * a + b * b 
+    a * a + b * b
 
 multFirstTwo (x:y:xs) = x * y --pattern matching example
 
@@ -111,7 +111,7 @@ zip' (x:xs) (y:ys) = (x, y) : zip' xs ys
 listIndSplit [] = ([], []) --must have even list input or error, splits into two lists of even and odd index positions
 listIndSplit [_] = error "Error"
 listIndSplit (x:y:xs) = (x:first, y:second)
-    where (first, second) = listIndSplit xs 
+    where (first, second) = listIndSplit xs
 
 
 mys2 [] [] = True --second list must be frist list with each element doubled but next to each other
@@ -123,13 +123,13 @@ mys2 (x:xs) (y1:y2:ys)
     | otherwise = False
 
 even' 0 = True
-even' n = odd' (n-1) 
+even' n = odd' (n-1)
 
 odd' 0 = False
 odd' n = even' (n-1)
 
 evens [] = []
-evens (x:xs) = x : odds xs 
+evens (x:xs) = x : odds xs
 
 odds [] = []
 odds (x:xs) = evens xs
@@ -139,18 +139,18 @@ fib 1 = 1
 fib n = fib (n-1) + fib (n-2)
 
 fastFibHelp 1 = [1, 0]
-fastFibHelp n = x + y : (x:y:xs) 
+fastFibHelp n = x + y : (x:y:xs)
     where (x:y:xs) = fastFibHelp (n-1)
 
 split pivot [] = ([], [])
 split pivot (x:xs)
     | x < pivot = (x : lower, upper)
-    | otherwise = (lower, x : upper)  
+    | otherwise = (lower, x : upper)
     where (lower, upper) = split pivot xs
-    
+
 
 qs [] = []
-qs (x:xs) = qs lower ++ [x] ++ qs upper 
+qs (x:xs) = qs lower ++ [x] ++ qs upper
     where (lower, upper) = split x xs
 
 qs' [] = []
@@ -180,4 +180,4 @@ caesarDec (x:xs) offset = shift x (-offset)
 
 
 
-    
+
