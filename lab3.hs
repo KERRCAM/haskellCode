@@ -16,3 +16,17 @@ lucas n = lucas (n - 1) + lucas (n - 2)
 halfSum [x] = x / 2
 halfSum (x:xs) = x * halfSum xs
 
+mult [] = [] 
+mult (x:xs) = (x * 2) : mult xs
+
+dropEvens [] = [] 
+dropEvens (x:xs) 
+    | mod x 2 == 0 = loop 
+    | otherwise = x : loop  
+    where loop = dropEvens xs 
+
+triple [] = [] 
+triple (x:xs) = x : x : x : triple xs 
+
+multiAdjacent [] = [] 
+multiAdjacent (x:y:xs) = (x * y) : multiAdjacent xs
