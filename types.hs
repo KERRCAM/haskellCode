@@ -28,4 +28,57 @@ mystery2 ((a,b):xs)
     | otherwise = rest
     where rest = mystery2 xs
 -- takes input list of tuples (char, bool) and is character has true with it its kept and if it has flase with it its discarded
---type is [(char, bool)] -> [char]
+--type is [(char, bool)] -> [char] 
+
+--partial application examples 
+--can call function with no all arguments making new function 
+func a b c = "Arguments are: " ++ [a, b, c]
+func2 = func 'x'
+--in this example func2 calls func but only with a value for a 
+--can now call func2 with the two arguments for b and c 
+
+joinThree x y z = x ++ [' '] ++ y ++ [' '] ++ z
+f1 = joinThree
+f2 = joinThree "hello"
+f3 = joinThree "hello" "to"
+f4 = joinThree "hello" "to" "you"
+
+--you can partially apply prelude functions as well:
+pow2 = (^) 2
+--pow2 10 gives 1024
+
+first_four = take 4
+--[1,2,3,4] for list of in order ints 
+
+prepend1 = (:) 1
+--prepend1 [1,2,3] gives [1,1,2,3]
+
+--can be done with operaters as well
+divR = (/2)  
+--only need left intput
+divL = (2/) 
+--only need right input
+divN = (/)
+--essentially renames the / symbol
+
+
+multThree x y z = x * y * z
+{-
+Bracketing for function types
+Function application should be thought of multiple partial applications
+multThree x y z = x * y * z
+ghci> ((multThree 2) 3) 4
+ghci> ((multThree 2) 3) 4
+24
+This means that the function type brackets to the right
+Int -> Int -> Int -> Int
+is the same as
+Int -> (Int -> (Int -> Int))
+-}
+
+multThree x y z = x * y * z
+multThree' (x, y, z) = x * y * z 
+{-
+These both do the same thing, but the second version cannot be partially applied
+- It’s best to avoid tuples unless they are necessary
+-}
