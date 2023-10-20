@@ -14,6 +14,7 @@ Examples:
 - [Char] -> Char
 - (Int, Int) -> Int
 -}
+{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
 
 mystery [] = True
 mystery (x:xs)
@@ -81,4 +82,17 @@ multThree' (x, y, z) = x * y * z
 {-
 These both do the same thing, but the second version cannot be partially applied
 - It’s best to avoid tuples unless they are necessary
--}
+-} 
+
+mystery3 = drop 10  
+--
+
+mystery4' a b c = b ++ a ++ c
+mystery4 = mystery4' " and "  
+--
+
+mystery5 = (^) ((^) 2 2) 
+--4^x where you give x 
+
+-- ^ can only do integer powers and gives integer back
+-- ** can do float powers and gives float back
