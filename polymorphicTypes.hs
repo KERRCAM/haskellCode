@@ -59,3 +59,35 @@ equalsTwo a b = a + b == 2
 
 --obviously all nums are also in eq but still need to state it 
 --this is becasue haskell lets you have num types not in eq
+
+-- :t (type inference) will always give the most general type annotation
+
+--Num type class can be further split into integral and fractional 
+--Integral represents whole numbers (contains Int and Integer)
+--Fractional represents rationals (contains Float, Double, and Rational) 
+
+--numbers like 2 defult type to Num 
+--can force a more specific number type by doing 2 :: float for example 
+
+{- 
+Converting integers to numbers
+Once the type has been fixed, it is fixed
+I But you can convert back to a more generic type using
+fromIntegral
+ghci> fromIntegral (1 :: Int) / 2
+0.5
+ghci> :t fromIntegral (1 :: Int)
+fromIntegral (1 :: Int) :: Num b => b
+ghci> :t fromIntegral
+fromIntegral :: (Integral a, Num b) => a -> b
+-}
+
+{-
+Haskell includes many typeclasses that we won’t see on this course
+length works on any data structure that is Foldable
+For COMP105, if you see
+- Functor
+- Foldable
+- Traversable
+then think list
+-}
