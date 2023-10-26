@@ -91,3 +91,25 @@ For COMP105, if you see
 - Traversable
 then think list
 -}
+
+--show function can convert other types to strings 
+--show 123 gives "123" 
+
+--read converts strings to other types 
+--have to specify what type it should read 
+--read "123" :: Int gives 123
+--read "False" :: Bool gives False
+--read "[1,2,3,4]" :: [Int] gives [1,2,3,4]
+--Read type class contains all types that can be read 
+
+--Ord type class contains all types that can be ordered
+--Tuples and lists are compared lexicographically (element by element)
+{- 
+ghci> :t (>)
+(>) :: Ord a => a -> a -> Bool
+ghci> :t (<=)
+(<=) :: Ord a => a -> a -> Bool
+ghci> :t max
+max :: Ord a => a -> a -> a
+
+-}
