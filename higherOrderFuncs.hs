@@ -89,8 +89,8 @@ swap :: (a -> b -> c) -> (b -> a -> c)
 swap f = \ x y -> f y x
 
 --This is just nicer syntax for a function that returns a function (currying)
-add_two = (+2)
-add_two' = (\ x -> x + 2)
-drop_six = drop 6
-drop_six' = (\ x -> drop 6 x)
+addTwo = (+2)
+addTwo' = (\ x -> x + 2)
+dropSix = drop 6
+dropSix' = (\ x -> drop 6 x)
 
