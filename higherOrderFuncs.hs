@@ -94,3 +94,4 @@ addTwo' = (\ x -> x + 2)
 dropSix = drop 6
 dropSix' = (\ x -> drop 6 x)
 
+--init frops all bar last element of a list, essentially head for the end of the list
