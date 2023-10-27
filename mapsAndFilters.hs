@@ -64,5 +64,32 @@ filter' f (x:xs)
     | f x = x : rest
     | otherwise = rest
     where rest = filter' f xs
---ghci> filter' even [1..10] gives [2,4,6,8,10]
+--ghci> filter' even [1..10] gives [2,4,6,8,10] 
 
+
+--rearranges list to be all the even elements then all the odd elements
+mystery4 list = filter even list ++ filter odd list
+
+--multiplies each number in the list by its index position in the list
+mystery5 list = map (\(x, y) -> x * y) (zip list [0..]) 
+--power isntead of multiplication
+mystery05 list = map (\(x, y) -> x ^ y) (zip list [0..])
+
+--takes numbers in first list and reassigns them to corresponding positions in second list 
+--can go over the length of second list though unlike mystery3
+mystery6 list1 list2 =
+    let
+        filtered = filter (< length list2) list1
+    in
+        map (\x -> list2 !! x) filtered
+
+{- 
+Higher order programming
+map and filter are examples of higher order programming
+This style
+- de-emphasises recursion
+- focuses on applying functions to lists
+- is available in imperative languages (python, C++)
+There is a whole family of higher order programming functions
+available in Haskell
+-}
