@@ -102,7 +102,7 @@ then think list
 --read "[1,2,3,4]" :: [Int] gives [1,2,3,4]
 --Read type class contains all types that can be read 
 
---Ord type class contains all types that can be ordered
+--Ord type class contains all types that can be ordered (and also compared - comparison isnt eq)
 --Tuples and lists are compared lexicographically (element by element)
 {- 
 ghci> :t (>)
