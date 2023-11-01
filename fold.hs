@@ -93,5 +93,4 @@ Observe that the function f has its type flipped
 - foldl (\ acc x -> ...
 -}
 
-reverse_list list = foldl (\ acc x -> x : acc) [] list
 
