@@ -50,4 +50,8 @@ onlyOdds list = filter odd list
 
 vowles list = filter (`elem` "aeiou") list 
 
-between a b list = filter (\ x -> x < a && x > b) list
+between a b list = filter (\ x -> x > a && x < b) list 
+
+order list = filter (\(x,y) -> x > y) list
+
+singletons list = filter 
