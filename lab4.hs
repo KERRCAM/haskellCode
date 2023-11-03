@@ -54,4 +54,21 @@ between a b list = filter (\ x -> x > a && x < b) list
 
 order list = filter (\(x,y) -> x > y) list
 
-singletons list = filter 
+singletons list = filter (\x -> length x == 1) list
+
+onlyOddsList list = map (filter odd) list
+
+--quetion 5 
+{- rewrittng with . operator
+a) head (head [[1]])
+(head . head) [[1]]
+
+b)(+1) ((*2) 4)
+((+1) . (*2()) 4
+
+c)sum (tail (tail [1,2,3,4])) 
+(sum . tail . tail) [1,2,3,4]
+
+d)filter (>10) (map (*2) [1..10]) 
+((filter >10) . (map (*2))) [1..10]
+-}

@@ -121,6 +121,7 @@ remove_cand c votes =
 
 
 --Putting it all together
+{-
 av_winner votes =
     let
         ranked = rank_candidates votes
@@ -129,4 +130,4 @@ av_winner votes =
         if length ranked == 1
         then first
         else av_winner (remove_cand first votes)
-
+-}
