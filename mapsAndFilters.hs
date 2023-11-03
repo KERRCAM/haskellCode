@@ -1,6 +1,11 @@
 --recap: transforming lists
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Eta reduce" #-}
+{-# HLINT ignore "Use zipWith" #-}
+{-# HLINT ignore "Use uncurry" #-}
+{-# HLINT ignore "Use const" #-}
+{-# HLINT ignore "Use map" #-}
+{-# HLINT ignore "Use camelCase" #-}
 double_list [] = []
 double_list (x:xs) = 2 * x : double_list xs
 

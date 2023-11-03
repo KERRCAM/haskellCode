@@ -1,6 +1,12 @@
 -- A higher order function is a function that:
     -- Takes another function as an argument, or
     -- Returns a function
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Eta reduce" #-}
+{-# HLINT ignore "Redundant lambda" #-}
+{-# HLINT ignore "Avoid lambda" #-}
+{-# HLINT ignore "Redundant bracket" #-}
+{-# HLINT ignore "Avoid lambda using `infix`" #-}
 
 
 applyTwice :: (a -> a) -> a -> a
