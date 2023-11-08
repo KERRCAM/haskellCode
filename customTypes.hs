@@ -134,6 +134,7 @@ area' (AdvRect (Point x1 y1) (Point x2 y2)) =
         h = abs (y1 - y2)
     in
         fromIntegral (w * h)
+        --from intergral ints -> floats
 --end of example
 
 
