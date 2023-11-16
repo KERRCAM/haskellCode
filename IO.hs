@@ -173,7 +173,8 @@ This is because IO is a monad
 You don’t need to know anything about monads for COMP105
 -}
 
---
+--gets user input, if empty it returns, if not it prints inout in all caps
+--(will keep getting and print new text until you give it nothing)
 mystery :: IO ()
 mystery =
     do
@@ -183,6 +184,6 @@ mystery =
         else do
             putStrLn (map toUpper x)
             mystery
-
+--this is also an example of a recursive IO action
 
 
