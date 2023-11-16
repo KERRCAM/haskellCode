@@ -109,6 +109,7 @@ fib_tree n = Branch (fib_tree (n-1)) (fib_tree (n-2))
 --Branch (Branch (Branch Leaf Leaf) Leaf)
 --                      (Branch Leaf Leaf)
 
+fib_calls n = size (fib_tree n)
 {- 
 Example: Fibonacci numbers
 fib_calls n = size (fib_tree n)
