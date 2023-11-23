@@ -1,3 +1,5 @@
+--EVALUATION STRATEGIES--
+
 {-
 Motivating example
 inc x = x + 1
