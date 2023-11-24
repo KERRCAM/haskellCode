@@ -188,3 +188,7 @@ ghci> func False $ (error "error")
 ghci> func False $! (error "error")
 *** Exception: error
 -}
+
+sieve (x:xs) = x : filter (\y -> y `mod` x /= 0)
+                                            (sieve xs)
+primes = sieve [2..]
