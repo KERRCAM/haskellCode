@@ -35,27 +35,38 @@ ghci> (\ (x:xs) -> head (tail(x:xs))) [10,12,14]
 -}
 
 --question 3
+tripleList :: Num b => [b] -> [b]
 tripleList list = map (*3) list
 
+listToStr :: Show a => [a] -> [String]
 listToStr list = map show list
 
+secondChar :: [[b]] -> [b]
 secondChar list = map (!!1) list
 
+addPairs :: Num b => [(b, b)] -> [b]
 addPairs list = map (\ (x,y) -> x+y) list 
 
+tripleListList :: Num b => [[b]] -> [[b]]
 tripleListList list = map (map (*3)) list
 
 --question 4 
+onlyOdds :: Integral a => [a] -> [a]
 onlyOdds list = filter odd list
 
+vowles :: [Char] -> [Char]
 vowles list = filter (`elem` "aeiou") list 
 
+between :: Ord a => a -> a -> [a] -> [a]
 between a b list = filter (\ x -> x > a && x < b) list 
 
+order :: Ord a => [(a, a)] -> [(a, a)]
 order list = filter (\(x,y) -> x > y) list
 
+singletons :: Foldable t => [t a] -> [t a]
 singletons list = filter (\x -> length x == 1) list
 
+onlyOddsList :: Integral a => [[a]] -> [[a]]
 onlyOddsList list = map (filter odd) list
 
 --quetion 5 
